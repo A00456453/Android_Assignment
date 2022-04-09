@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
         <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_guest_details_fragment.xml" value="0.2466866182129115" />
-        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_list_fragment.xml" value="0.2466866182129115" />
+        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_guest_details_layout.xml" value="0.23514322359982898" />
+        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_list_fragment.xml" value="0.1" />
         <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_list_layout.xml" value="0.2466866182129115" />
-        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_search_layout.xml" value="0.25" />
+        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/hotel_search_layout.xml" value="0.1" />
+        <entry key="..\:/Users/javal/AndroidStudioProjects/Classwork/app/src/main/res/layout/reservation_confirmation.xml" value="0.2466866182129115" />
       </map>
     </option>
   </component>

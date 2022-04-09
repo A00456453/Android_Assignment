@@ -38,7 +38,8 @@ public class HotelSearchFragment  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        view = inflater.inflate(R.layout.hotel_search_layout, container, false);
+        return view;
     }
 
     @Override
@@ -120,7 +121,7 @@ public class HotelSearchFragment  extends Fragment {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String formattedDate = simpleDateFormat.format(calendar.getTime());
 
         return formattedDate;

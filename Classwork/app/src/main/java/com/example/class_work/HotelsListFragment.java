@@ -19,9 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-//import retrofit.Callback;
-//import retrofit.RetrofitError;
-//import retrofit.client.Response;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 
 public class HotelsListFragment extends Fragment implements ItemClickListener {
 
@@ -33,7 +34,6 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.hotel_list_fragment, container, false);
         return view;
     }
@@ -42,7 +42,6 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //heading text view
         headingTextView = view.findViewById(R.id.heading_text_view);
         progressBar = view.findViewById(R.id.progress_bar);
 
@@ -50,12 +49,10 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         String checkOutDate = getArguments().getString("check out date");
         String numberOfGuests = getArguments().getString("number of guests");
 
-        //Set up the header
-        headingTextView.setText("Welcome user, displaying hotel for " + numberOfGuests + " guests staying from " + checkInDate +
-                " to " + checkOutDate);
+        headingTextView.setText("Welcome Bhura, displaying hotel for " + numberOfGuests + " guests staying from " + checkInDate + " to " + checkOutDate);
 
         progressBar.setVisibility(View.VISIBLE);
-        setupRecyclerView();
+        getHotelsListsData();
     }
 
     public ArrayList<HotelListData> initHotelListData() {
@@ -73,6 +70,23 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         return list;
     }
 
+    private void getHotelsListsData() {
+        progressBar.setVisibility(View.VISIBLE);
+        Api.getClient().getHotelsLists(new Callback<HotelInformation>() {
+            @Override
+            public void success(HotelInformation userListResponses, Response response) {
+                userListResponseData = userListResponses.getHotels_list();
+                setupRecyclerView();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(getActivity(), error.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
 
     private void setupRecyclerView() {
         progressBar.setVisibility(View.GONE);
@@ -80,8 +94,6 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         HotelListAdapter hotelListAdapter = new HotelListAdapter(getActivity(), userListResponseData);
         recyclerView.setAdapter(hotelListAdapter);
-
-        //Bind the click listener
         hotelListAdapter.setClickListener(this);
     }
 
@@ -95,6 +107,10 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         String availability = hotelListData.getAvailability();
 
         Bundle bundle = new Bundle();
+
+        bundle.putString("check in date",getArguments().getString("check in date"));
+        bundle.putString("check out date",getArguments().getString("check out date"));
+        bundle.putString("number of guests" ,getArguments().getString("number of guests"));
         bundle.putString("hotel name", hotelName);
         bundle.putString("hotel price", price);
         bundle.putString("hotel availability", availability);

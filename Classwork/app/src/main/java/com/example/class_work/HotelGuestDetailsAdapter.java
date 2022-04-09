@@ -13,7 +13,6 @@ public class HotelGuestDetailsAdapter extends RecyclerView.Adapter<HotelGuestDet
     private LayoutInflater layoutInflater;
     String size;
 
-    //Data gets passed in the constructor
     HotelGuestDetailsAdapter(Context context, String size) {
         this.layoutInflater = LayoutInflater.from(context);
         this.size = size;
@@ -43,22 +42,12 @@ public class HotelGuestDetailsAdapter extends RecyclerView.Adapter<HotelGuestDet
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-//        TextView hotelName, hotelPrice, hotelAvailability;
-//
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-//            hotelName = itemView.findViewById(R.id.hotel_name_text_view);
-//            hotelPrice = itemView.findViewById(R.id.price_text_view);
-//            hotelAvailability = itemView.findViewById(R.id.availability_text_view);
-//
-//            itemView.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View view) {
-//            if (clickListener != null)
-//                clickListener.onClick(view, getAbsoluteAdapterPosition());
         }
     }
 

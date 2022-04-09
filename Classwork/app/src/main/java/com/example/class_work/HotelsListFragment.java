@@ -49,7 +49,7 @@ public class HotelsListFragment extends Fragment implements ItemClickListener {
         String checkOutDate = getArguments().getString("check out date");
         String numberOfGuests = getArguments().getString("number of guests");
 
-        headingTextView.setText("Welcome Bhura, displaying hotel for " + numberOfGuests + " guests staying from " + checkInDate + " to " + checkOutDate);
+        headingTextView.setText("Welcome Javal, displaying hotel for " + numberOfGuests + " guests staying from " + checkInDate + " to " + checkOutDate);
 
         progressBar.setVisibility(View.VISIBLE);
         getHotelsListsData();
